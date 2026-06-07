@@ -1175,3 +1175,7 @@ async function startServer() {
 }
 
 startServer();
+
+// Production Export Bridge for Vercel Serverless Core
+export default app;
+

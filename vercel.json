@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/:match*",
-      "destination": "/server.ts"
+      "destination": "/api/index.js"
     }
   ]
 }
