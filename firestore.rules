@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow read and write access to all collections used by the secure server-side app proxy
+    match /candidates/{candidateId} {
+      allow read, write: if true;
+    }
+
+    match /proctorLogs/{logId} {
+      allow read, write: if true;
+    }
+
+    match /challenges/{challengeId} {
+      allow read, write: if true;
+    }
+
+    match /recruiters/{recruiterId} {
+      allow read, write: if true;
+    }
+
+    match /liveFaces/{emailId} {
+      allow read, write: if true;
+    }
+
+    match /registrationPasscodes/{codeId} {
+      allow read, write: if true;
+    }
+  }
+}

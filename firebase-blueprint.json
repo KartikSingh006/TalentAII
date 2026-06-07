@@ -1,0 +1,111 @@
+{
+  "entities": {
+    "Candidate": {
+      "title": "Candidate",
+      "description": "Information about assessment candidates including evaluation status and code submissions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "specialization": { "type": "string" },
+        "scheduledTime": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "status": { "type": "string" },
+        "submittedCode": { "type": "string" },
+        "syntaxStatus": { "type": "string" },
+        "syntaxResult": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "specialization", "status"]
+    },
+    "ProctorLog": {
+      "title": "ProctorLog",
+      "description": "Continuous telemetry audit logs captured during candidate assessments",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "candidateName": { "type": "string" },
+        "candidateEmail": { "type": "string" },
+        "type": { "type": "string" },
+        "message": { "type": "string" },
+        "severity": { "type": "string" },
+        "eventId": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "candidateEmail", "type", "message", "severity", "timestamp"]
+    },
+    "Challenge": {
+      "title": "Challenge",
+      "description": "Technical programming assessments and questions designed for candidates",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "language": { "type": "string" },
+        "timeLimit": { "type": "string" },
+        "description": { "type": "string" },
+        "codeSnippet": { "type": "string" }
+      },
+      "required": ["id", "title", "language", "timeLimit", "description", "codeSnippet"]
+    },
+    "Recruiter": {
+      "title": "Recruiter",
+      "description": "Authorized hiring managers and evaluation supervisor credentials",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "password": { "type": "string" },
+        "isMain": { "type": "boolean" }
+      },
+      "required": ["id", "name", "email", "password", "isMain"]
+    },
+    "LiveFace": {
+      "title": "LiveFace",
+      "description": "Real-time facial frame snapshots grabbed from candidate webcam feed",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "face": { "type": "string" }
+      },
+      "required": ["email", "face"]
+    },
+    "Passcode": {
+      "title": "Passcode",
+      "description": "Sign-up codes permitted for recruiter registration",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["code"]
+    }
+  },
+  "firestore": {
+    "candidates/{candidateId}": {
+      "schema": "Candidate",
+      "description": "Candidates assessments and submissions data"
+    },
+    "proctorLogs/{logId}": {
+      "schema": "ProctorLog",
+      "description": "Telemetry audit trails and cheating violation logs"
+    },
+    "challenges/{challengeId}": {
+      "schema": "Challenge",
+      "description": "Dynamic development testing library tasks"
+    },
+    "recruiters/{recruiterId}": {
+      "schema": "Recruiter",
+      "description": "Recruiter authentication workspace table"
+    },
+    "liveFaces/{emailId}": {
+      "schema": "LiveFace",
+      "description": "Webcam biometric stream snap buffers"
+    },
+    "registrationPasscodes/{codeId}": {
+      "schema": "Passcode",
+      "description": "Recruiter invite activation nodes"
+    }
+  }
+}

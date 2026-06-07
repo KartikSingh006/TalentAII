@@ -1,0 +1,6 @@
+{
+  "name": "TalentAi",
+  "description": "TalentAi - Enterprise-grade remote technical assessment and proctoring control panel integrated with secure communications, automated oral AI interview evaluations, and dual candidate testing feeds.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
